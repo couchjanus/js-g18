@@ -6,17 +6,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>My Project</title>
+  <link href="./fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="css/showcase.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <h1>Hello JavaScript</h1>
-    <script>
-        // alert("Good morning Cats!");
-        // confirm("Well, let's go?");
-        // prompt("Dude, tell me everything you know about programming", "...");
-    </script>
-    <script src="./js/index.js"></script>
+  <nav>
+    <ul class="navbar">
+      <li class="navbar__logo"><a href="#">Shopaholic</a></li>
+      <li class="navbar__item"><a href="#">Home</a></li>
+      <li class="navbar__item"><a href="#">About</a></li>
+      <li class="navbar__item"><a href="#">Contact</a></li>
+      <li class="navbar__item user"><a href="#"><i class="fas fa-sign"></i></a></li>
+      <li class="navbar__item user"><a href="#"><i class="fas fa-user-plus"></i></a></li>
+      <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+      <li class="shopping__cart"><a href="#" onclick="openCart()"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+  </nav>
+
+
+  <aside class="sidebar" id="sidebar">
+    <a href="#" class="close__btn" onclick="closeCart()">&times;</a>
+  </aside>
+
+  <main>
+    <div class="filter-section__wrapper">
+
+    </div>
+    <section class="showcase-section">
+      <div class="product">
+        <div class="product__image"><img src="./images/01.jpg" alt="PRODUCT INFO" /></div>
+        <div class="product__info">
+          <h3 class="product__title">PRODUCT INFO</h3>
+          <p class="product__info__extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+        </div>
+        <div class="product__buy">
+          <a href="#" class="add_to_card"><i class="fas fa-shopping-cart"></i>Add to card</a>
+          <div class="product__prices">
+            <i class="fas fa-dollar-sign"></i>
+            <span class="product__price">189.99</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="./js/index.js"></script>
+
+  <script>
+    function openCart() {
+      document.getElementById("sidebar").style.right = '0px';
+    }
+    
+    function closeCart() {
+      document.getElementById("sidebar").style.right = "-100%";
+    }
+    
+
+  </script>
 </body>
 
 </html>
