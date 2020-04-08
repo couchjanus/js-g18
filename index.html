@@ -18,17 +18,48 @@
       <li class="navbar__item"><a href="#">Home</a></li>
       <li class="navbar__item"><a href="#">About</a></li>
       <li class="navbar__item"><a href="#">Contact</a></li>
-      <li class="navbar__item user"><a href="#"><i class="fas fa-sign"></i></a></li>
+      
       <li class="navbar__item user"><a href="#"><i class="fas fa-user-plus"></i></a></li>
       <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-      <li class="shopping__cart"><a href="#" onclick="openCart()"><i class="fas fa-shopping-cart"></i></a></li>
+      <li class="shopping__cart">
+        <a href="#"><i class="fas fa-cart-plus"></i> <span class="shopping__cart-items">0</span></a>
+      </li>
     </ul>
+
   </nav>
-
-
-  <aside class="sidebar" id="sidebar">
-    <a href="#" class="close__btn" onclick="closeCart()">&times;</a>
+  
+  <!-- cart -->
+  <aside class="sidebar cart-overlay" id="sidebar">
+    <div class="cart">
+      <a href="#" class="close__btn"><i class="far fa-window-close"></i></a>
+      <h2>Your Cart</h2>
+      <div class="cart-content">
+        <!-- cart item -->
+        <div class="cart-item">
+          <div><img src="./images/01.jpg" alt="product"></div>
+          
+          <div>
+            <h4>Red Cat</h4>
+            <h5>$<span class="item-price">189.99</span></h5>
+            <span class="remove-item">remove</span>
+          </div>
+          <div>
+            <i class="fas fa-chevron-up"></i>
+            <p class="item-amount">
+              1
+            </p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        <!-- cart item -->
+      </div>
+      <div class="cart-footer">
+        <h3>your total : $<span class="cart-total">0</span></h3>
+        <a class="clear-cart btn_card">clear cart</a>
+      </div>
+    </div>
   </aside>
+  <!-- end of cart -->
 
   <main>
     <div class="filter-section__wrapper">
@@ -36,7 +67,11 @@
     </div>
     <section class="showcase-section">
       <div class="product">
-        <div class="product__image"><img src="./images/01.jpg" alt="PRODUCT INFO" /></div>
+        <div class="product__image"><img src="./images/01.jpg" alt="PRODUCT INFO" />
+          <div class="product__detail">
+            <a href="#" class="product__detail-btn">Detail view</a>
+          </div>
+        </div>
         <div class="product__info">
           <h3 class="product__title">PRODUCT INFO</h3>
           <p class="product__info__extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
@@ -55,19 +90,9 @@
   </main>
 
 
-  <script src="./js/index.js"></script>
-
-  <script>
-    function openCart() {
-      document.getElementById("sidebar").style.right = '0px';
-    }
-    
-    function closeCart() {
-      document.getElementById("sidebar").style.right = "-100%";
-    }
-    
-
-  </script>
+  <!-- <script src="./js/index.js"></script> -->
+  <!-- <script src="./js/jquery-3.4.1.min.js"></script> -->
+  <!-- <script src="./js/app.js"></script> -->
 </body>
 
 </html>
