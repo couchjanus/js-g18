@@ -6,13 +6,13 @@
 // let products = new Array(); // Создали новый пустой массив []
 // let products = []; // Тоже создали новый пустой массив []
 
-let products = new Array(3); /* массив из 3-х элементов*/
+// let products = new Array(3); /* массив из 3-х элементов*/
 
-products[0] = "Really Cool Cat";
-products[1] = "Cool Dog";
-products[2] = "Angry Dog";
+// products[0] = "Really Cool Cat";
+// products[1] = "Cool Dog";
+// products[2] = "Angry Dog";
 
-let products = new Array("Really Cool Cat", "Cool Dog", "Angry Dog");
+// let products = new Array("Really Cool Cat", "Cool Dog", "Angry Dog");
 
 // Обращение или доступ к элементам массива в javaScript:
 
@@ -23,52 +23,52 @@ let products = new Array("Really Cool Cat", "Cool Dog", "Angry Dog");
 // products[4]='Yellow Dog';
 
 // Свойство массивов length взаимосвязано с числом свойств.
-console.log(products.length); 
+// console.log(products.length); 
 
 // Длина length – не количество элементов массива, а последний индекс + 1.
 
-products[1000] = true;
-console.log(products.length); // 1001
+// products[1000] = true;
+// console.log(products.length); // 1001
 
 // При уменьшении length массив укорачивается.
-products.length = 2; // укоротить до 2 элементов
-console.log(products[3] );
-products.length = 5; // вернуть length обратно, как было
-console.log(products[3]); // undefined: значения не вернулись
+// products.length = 2; // укоротить до 2 элементов
+// console.log(products[3] );
+// products.length = 5; // вернуть length обратно, как было
+// console.log(products[3]); // undefined: значения не вернулись
 
 // ==============================================
-let addToCart = document.querySelector('.add_to_card');
+// let addToCart = document.querySelector('.add_to_card');
 
-console.dir(typeof(addToCart)); // object Node
+// console.dir(typeof(addToCart)); // object Node
 
-addToCart.addEventListener('click', function () {
-    document.querySelector('.product__image').style.transform = 'rotateY(180deg)';
-}); 
+// addToCart.addEventListener('click', function () {
+//     document.querySelector('.product__image').style.transform = 'rotateY(180deg)';
+// }); 
 
 // ======================== NodeList ==========================
-let addToCarts = document.querySelectorAll('.add_to_card'); 
+// let addToCarts = document.querySelectorAll('.add_to_card'); 
 
-console.dir(addToCarts); // NodeList(3)
-console.log(addToCarts.length);
+// console.dir(addToCarts); // NodeList(3)
+// console.log(addToCarts.length);
 
 // перебор элементов массива addToCarts:
 
-for (let i = 0; i < addToCarts.length; i++) {
-    // Вы можете использовать метод item( ) для доступа к элементу
-    console.log(addToCarts.item(i));
-    // Вызов addToCarts.item(i) необязателен в JavaScript
-    // использование квадратных скобок намного проще и более распространено
-    console.log(addToCarts[i]); 
-}
+// for (let i = 0; i < addToCarts.length; i++) {
+//     // Вы можете использовать метод item( ) для доступа к элементу
+//     console.log(addToCarts.item(i));
+//     // Вызов addToCarts.item(i) необязателен в JavaScript
+//     // использование квадратных скобок намного проще и более распространено
+//     console.log(addToCarts[i]); 
+// }
 
 // Обход DOM коллекций NodeList: 
 
 // Оператор for...of работает только на платформах, где
 // реализован NodeList.prototype[Symbol.iterator]
 
-for (let item of addToCarts) {
-    console.log(item);
-}
+// for (let item of addToCarts) {
+//     console.log(item);
+// }
 
 // Метод NodeList.entries() возвращает итератор, 
 // позволяющий просмотреть все пары ключ / значение, 
@@ -76,32 +76,32 @@ for (let item of addToCarts) {
 // Значения являются объектами Node.
 
 // Using for..of
-for(let entry of addToCarts.entries()) { 
-    console.log(entry);
-}
+// for(let entry of addToCarts.entries()) { 
+//     console.log(entry);
+// }
 
 // Метод NodeList.keys() возвращает итератор, 
 // позволяющий просмотреть все ключи, содержащиеся в этом объекте.
 // Ключи имеют целое число без знака.
 
 // Using for..of 
-for(let key of addToCarts.keys()) { 
-    console.log(key); 
-}
+// for(let key of addToCarts.keys()) { 
+//     console.log(key); 
+// }
 // Метод NodeList.values() возвращает итератор, 
 // позволяющий просмотреть все значения, содержащиеся в этом объекте. 
 // Значения являются объектами Node.
 
 // Using for..of 
-for(let value of addToCarts.values()) { 
-    console.log(value); 
-}
+// for(let value of addToCarts.values()) { 
+//     console.log(value); 
+// }
 
 // forEach
-addToCarts.forEach(function(addToCart) { 
-      console.log(addToCart); 
-    }
-);
+// addToCarts.forEach(function(addToCart) { 
+//       console.log(addToCart); 
+//     }
+// );
 
 // ================ this =====================
 // console.log(this.document === document); // true
@@ -143,84 +143,9 @@ addToCarts.forEach(function(addToCart) {
 //   });
 // });
 
-addToCarts.forEach(function(addToCart) {
-    addToCart.addEventListener('click', function () {
-        console.log(this.closest(".product").firstElementChild);
-        this.parentNode.parentNode.firstElementChild.style.transform = 'rotateY(180deg)';
-    });
-});
- 
-
-
-
-// for (let i=0; i<addToCarts.length; i++ ){
-//    addToCarts[i].addEventListener('click', function (e) {
-//        console.log(e);
-//    });
-// }
-
-// for (let i=0; i<addToCarts.length; i++ ){
-//     addToCarts[i].addEventListener('click', function (e) {
-//         console.log(e.target);
-//         // e.target.style.display = 'none';
+// addToCarts.forEach(function(addToCart) {
+//     addToCart.addEventListener('click', function () {
+//         console.log(this.closest(".product").firstElementChild);
+//         this.parentNode.parentNode.firstElementChild.style.transform = 'rotateY(180deg)';
 //     });
-// }
-
-// for (let i=0; i<addToCarts.length; i++ ){
-//     addToCarts[i].addEventListener('click', function (e) {
-//         // ==========parentNode==============
-//         // console.log(e.target.parentNode);
-//         // console.log(e.target.parentNode.parentNode.parentNode.parentNode);
-        
-//         // =========childNodes==============
-//         // console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
-        
-//         // ===========childElementCount==========
-//         // console.log(e.target.parentNode.parentNode.parentNode.parentNode.childElementCount);
-        
-//         // ===========children childElementCount=========
-//         console.log(e.target.parentNode.parentNode.parentNode.parentNode.children);
-//         console.log(e.target.parentNode.parentNode.parentNode.parentNode.childElementCount);
-        
-
-        // e.target.parentNode.parentNode.parentNode.parentNode.children[0].style.transform = 'rotateY(180deg)';
-
-//         // =========firstChild lastChild==============
-//         console.log(e.target.parentNode.parentNode.parentNode.parentNode.firstChild);
-//         console.log(e.target.parentNode.parentNode.parentNode.parentNode.lastChild);
-        
-//         // =========nextSibling previousSibling=============
-//         console.log(es.target.parentNode.parentNode.parentNode.parentNode.firstChild.nextSibling);
-//         console.log(e.target.parentNode.parentNode.parentNode.parentNode.lastChild.previousSibling);
-        
-//         // ========firstElementChild lastElementChild==========
-//         console.log(e.target.parentNode.parentNode.parentNode.parentNode.firstElementChild);
-
-//         e.target.parentNode.parentNode.parentNode.parentNode.firstElementChild.style.transform = 'rotateY(180deg)';
-
-//         console.log(e.target.parentNode.parentNode.parentNode.parentNode.lastElementChild);
-        
-//     });
-// }
-
-
-// const products = [
-//     {
-//         id: 0,
-//         title: "Really Cool Cat",
-//         price: 189.99,
-//         image: "./images/01.jpg",
-//     },
-//     {
-//         id: 1,
-//         title: "Cool Dog",
-//         price: 229.99,
-//         image: "./images/02.jpg",
-//     },
-//     {
-//         id: 2,
-//         title: "Angry Dog",
-//         price: 255.99,
-//         image: "./images/03.jpg",
-//     },
-// ];
+// });

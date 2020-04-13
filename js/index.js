@@ -303,7 +303,7 @@ const products = [
     
 //     addToCarts.forEach(function(addToCart) {
 //         addToCart.addEventListener("click", function () {
-//             let productParent = this.closest('.product');
+            // let productParent = this.closest('.product');
 //             productParent.querySelector('.product__image').style.transform = 'rotateY(180deg)';
 //             let val = el('.shopping__cart-items').textContent;
 //             val = +(val) + 1;
@@ -314,27 +314,27 @@ const products = [
 //         });
 //     });
 
-//     el('.cart-content').addEventListener(
-//         'click',
-//         function(e) {
-//             if (e.target && e.target.matches('.remove-item')) {
-//                 e.target.parentNode.parentNode.remove();
-//                 updateTotal();
-//             }
-//             if (e.target && e.target.matches('.fa-chevron-up')) {
-//                 let plus = e.target.nextElementSibling;
-//                 let val = plus.textContent;
-//                 val = +(val) + 1;
-//                 plus.textContent = val;
-//                 updateTotal();
-//             }
-//             if (e.target && e.target.matches('.fa-chevron-down')) {
-//                 let minus = e.target.previousElementSibling;
-//                 let val = minus.textContent;
-//                 val = +(val) - 1;
-//                 minus.textContent = val;
-//                 updateTotal();
-//             }
+    // el('.cart-content').addEventListener(
+    //     'click',
+    //     function(e) {
+    //         if (e.target && e.target.matches('.remove-item')) {
+    //             e.target.parentNode.parentNode.remove();
+    //             updateTotal();
+    //         }
+            // if (e.target && e.target.matches('.fa-chevron-up')) {
+            //     let plus = e.target.nextElementSibling;
+            //     let val = plus.textContent;
+            //     val = +(val) + 1;
+            //     plus.textContent = val;
+            //     updateTotal();
+            // }
+            // if (e.target && e.target.matches('.fa-chevron-down')) {
+            //     let minus = e.target.previousElementSibling;
+            //     let val = minus.textContent;
+            //     val = +(val) - 1;
+            //     minus.textContent = val;
+            //     updateTotal();
+            // }
 //         },
 //         false
 //     );
