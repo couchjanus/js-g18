@@ -1,151 +1,122 @@
 'use strict';
 
-// Создание элементов массива возможно несколькими способами:
-// Синтаксис для создания нового массива:
+// Пример: использование toFixed
+let numObj = 12345.6789;
 
-// let products = new Array(); // Создали новый пустой массив []
-// let products = []; // Тоже создали новый пустой массив []
+numObj.toFixed();       // Вернёт '12346': обратите внимание на округление, дробной части нет
+numObj.toFixed(1);      // Вернёт '12345.7': обратите внимание на округление
+numObj.toFixed(6);      // Вернёт '12345.678900': обратите внимание на дополнение нулями
+(1.23e+20).toFixed(2);  // Вернёт '123000000000000000000.00'
+(1.23e-10).toFixed(2);  // Вернёт '0.00'
+2.34.toFixed(1);        // Вернёт '2.3'
+-2.34.toFixed(1);       // Вернёт -2.3 (в соответствии с приоритетом операций,
+                        // отрицательные числовые литералы не возвращают строку...)
+(-2.34).toFixed(1);     // Вернёт '-2.3' (...до тех пор, пока вы не заключите их в круглые скобки)
 
-// let products = new Array(3); /* массив из 3-х элементов*/
 
-// products[0] = "Really Cool Cat";
-// products[1] = "Cool Dog";
-// products[2] = "Angry Dog";
+// Тегированные шаблоны
+// Шаблонные строки позволяют создавать тегированные шаблонные строки. 
+// создается обычная функция
 
-// let products = new Array("Really Cool Cat", "Cool Dog", "Angry Dog");
+function myTaggedLiteral(strings) {
+ console.log(strings);
+}
 
-// Обращение или доступ к элементам массива в javaScript:
+// вызов такой функции будет отличаться от вызова обычной функции:
+// при вызове функции отсутствуют скобки! 
+// На месте скобок записывается шаблонная строка. 
 
-// console.log(products[0]);              // напечатает 'Really Cool Cat'
-// console.log(products[1]);              // напечатает 'Cool Dog'
+myTaggedLiteral`test`; 
+// ["test"]
 
-// products[3]='Black Cat';
-// products[4]='Yellow Dog';
+// В качестве параметра функции передается массив строк в шаблонной строке. 
+// добавим новый аргумент в функцию.
 
-// Свойство массивов length взаимосвязано с числом свойств.
-// console.log(products.length); 
+function myTaggedLiteral(strings, value) {
+ console.log(strings,value);
+}
 
-// Длина length – не количество элементов массива, а последний индекс + 1.
+let someText = 'Neat';
+myTaggedLiteral`test ${someText}`; 
+// ["test", ""]
+// "Neat"
 
-// products[1000] = true;
-// console.log(products.length); // 1001
+// добавим в функцию выражение
 
-// При уменьшении length массив укорачивается.
-// products.length = 2; // укоротить до 2 элементов
-// console.log(products[3] );
-// products.length = 5; // вернуть length обратно, как было
-// console.log(products[3]); // undefined: значения не вернулись
-
-// ==============================================
-// let addToCart = document.querySelector('.add_to_card');
-
-// console.dir(typeof(addToCart)); // object Node
-
-// addToCart.addEventListener('click', function () {
-//     document.querySelector('.product__image').style.transform = 'rotateY(180deg)';
-// }); 
-
-// ======================== NodeList ==========================
-// let addToCarts = document.querySelectorAll('.add_to_card'); 
-
-// console.dir(addToCarts); // NodeList(3)
-// console.log(addToCarts.length);
-
-// перебор элементов массива addToCarts:
-
-// for (let i = 0; i < addToCarts.length; i++) {
-//     // Вы можете использовать метод item( ) для доступа к элементу
-//     console.log(addToCarts.item(i));
-//     // Вызов addToCarts.item(i) необязателен в JavaScript
-//     // использование квадратных скобок намного проще и более распространено
-//     console.log(addToCarts[i]); 
+// function myTaggedLiteral(strings, value, value2) {
+//  console.log(strings,value);
 // }
 
-// Обход DOM коллекций NodeList: 
+// Получить доступ к выражению можно из следующих параметров. 
+// let someText = 'Neat';
+// myTaggedLiteral`test ${someText} ${2 + 3}`; 
+// ["test", ""]
+// "Neat"
+// 5
 
-// Оператор for...of работает только на платформах, где
-// реализован NodeList.prototype[Symbol.iterator]
+// Многоразовые шаблоны - функция, которая позволит создавать многоразовые шаблоны. 
+// Идея заключается в создании первичного шаблона, в который будут передаваться данные.
 
-// for (let item of addToCarts) {
-//     console.log(item);
+// функция templater.
+// const templater = function(strings, ...keys) {
+
 // }
 
-// Метод NodeList.entries() возвращает итератор, 
-// позволяющий просмотреть все пары ключ / значение, 
-// содержащиеся в этом объекте. 
-// Значения являются объектами Node.
 
-// Using for..of
-// for(let entry of addToCarts.entries()) { 
-//     console.log(entry);
+// параметр …keys. 
+// Троеточие называется оставшимся параметром. 
+// Этот параметр собирает все параметры функции в массив.
+
+// возврат функции позволяет вызывать и передавать данные:
+
+// studentTemplate(student).
+// const templater = function(strings, ...keys) {
+//  return function(data) {
+
+//  } 
 // }
 
-// Метод NodeList.keys() возвращает итератор, 
-// позволяющий просмотреть все ключи, содержащиеся в этом объекте.
-// Ключи имеют целое число без знака.
+function templater(strings, ...keys) {
+    // console.log(keys);
+    return function(data) {
+        let temp = strings.slice();
+    
+        keys.forEach((key, i) => {
+            let value = (Array.isArray(data[key]))? data[key][0]:data[key];
+            temp[i] = temp[i] + value;
+        });
+        return temp.join('');
+    }
+};
 
-// Using for..of 
-// for(let key of addToCarts.keys()) { 
-//     console.log(key); 
-// }
-// Метод NodeList.values() возвращает итератор, 
-// позволяющий просмотреть все значения, содержащиеся в этом объекте. 
-// Значения являются объектами Node.
+const product = {
+    id: 0,
+    title: "Cool Cat",
+    price: 77.99,
+    images: ["./images/cat1.jpg", "./images/cat4.jpg", "./images/cat5.jpg", "./images/cat2.jpg", "./images/cat3.jpg"],
+    subtitles: ["Mama mia!", "Je t'adore", "Tropical cat", "White home cat", "Beach cat"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+};
 
-// Using for..of 
-// for(let value of addToCarts.values()) { 
-//     console.log(value); 
-// }
+const productTemplate = templater`<div class="product" productId=${'id'}>
+<div class="product__image"><img src=${'images'} alt=${'title'}>
+    <div class="product__detail">
+    <a href="#" class="product__detail-btn">Detail view</a>
+    </div>
+</div>
+<div class="product__info">
+    <h3 class="product__title">${'title'}</h3>
+    <p class="product__info__extra">${'description'}</p>
+</div>
+<div class="product__buy">
+    <a href="#" class="add_to_card"><i class="fas fa-shopping-cart"></i>Add to card</a>
+    <div class="product__prices">
+    <i class="fas fa-dollar-sign"></i>
+    <span class="product__price">${'price'}</span>
+    </div>
+</div>
+</div>`;
 
-// forEach
-// addToCarts.forEach(function(addToCart) { 
-//       console.log(addToCart); 
-//     }
-// );
+const prodTemplate = productTemplate(product);
+console.log(prodTemplate);
 
-// ================ this =====================
-// console.log(this.document === document); // true
-
-// // В браузерах, объект window также является глобальным:
-// console.log(this === window); // true
-
-// this.a = 37;
-// console.log(window.a); // 37
-
-// function f() {
-//     console.log(this === window); // true
-// }
-// f();
-
-// (function () {
-//     console.log(this === window); // true
-// })();
-
-// var globalObject = this;
-// var foo = (() => this);
-// console.log(foo() === globalObject); // true
-
-// var o = {
-//     prop: 37,
-//     f: function() {
-//       return this.prop;
-//     }
-//   };
-// console.log(o.f()); // logs 37
-
-// ================== this ==========================
-
-// addToCarts.forEach(function(addToCart) {
-//   addToCart.addEventListener('click', function () {
-//       console.log(this);
-//       console.log(this.parentNode.parentNode.firstElementChild);
-//       this.parentNode.parentNode.firstElementChild.style.transform = 'rotateY(180deg)';
-//   });
-// });
-
-// addToCarts.forEach(function(addToCart) {
-//     addToCart.addEventListener('click', function () {
-//         console.log(this.closest(".product").firstElementChild);
-//         this.parentNode.parentNode.firstElementChild.style.transform = 'rotateY(180deg)';
-//     });
-// });

@@ -14,8 +14,8 @@
 <body>
   <nav>
     <ul class="navbar">
-      <li class="navbar__logo"><a href="#">Shopaholic</a></li>
-      <li class="navbar__item"><a href="#">Home</a></li>
+      <li class="navbar__logo"><a href="index.html">Shopaholic</a></li>
+      <li class="navbar__item"><a href="index.html">Home</a></li>
       <li class="navbar__item"><a href="#">About</a></li>
       <li class="navbar__item"><a href="#">Contact</a></li>
       
@@ -126,8 +126,28 @@
     </div>
     <!-- cart item -->
   </template>
-
-  <script src="./js/test.js"></script>
+  
+  <template id="catouselNav">
+    <div class="carousel-wrapper">
+        <div class="carousel-detail">
+            <div class="carousel__nav">
+                <span id="moveLeft" class="carousel__arrow">
+                    <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                    </svg>
+                </span>
+                <span id="moveRight" class="carousel__arrow">
+                    <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                    </svg>
+                </span>
+            </div>
+            
+        </div>
+    </div>
+  </template>
+  <script src="./js/db.js"></script>
+  <script src="./js/index.js"></script>
   <script src="./js/jquery-3.4.1.min.js"></script>
   <!-- <script src="./js/app.js"></script> -->
   
