@@ -1,17 +1,14 @@
-// подход с использованием jQuery:
-$('.example').append('<a href="http://google.com">Googling!</a>');
-// методы append, appendTo и им подобные при вызове со строковым аргументом всегда считают, что вы передали им html-код.
-
-//   кроссбраузерный и безопасный вариант:
-$('<a>', {
-   href: 'http://google.com',
-   text: 'Googling!'
-}).appendTo('.example');
-
-// $(".hello").appendTo(".container");
-// $(".hello").clone().appendTo(".container");
-
-// $(".hello").clone() // сделаем копию элемента hello
-//     .addClass("newElement") // добавим класс newElement
-//     .text("Hello Again!") // изменим текст внутри нее
-//     .appendTo(".container"); // вставим элемент в конец container
+$(".add_to_card").each(function(index, element){
+   $(element).on('click', function ()  {
+       $(this).parents('.product').find('.product__info__extra').show(1000);
+       // $(this).parents('.product').find('.product__info__extra').show('fast');
+       // $(this).parents('.product').find('.product__info__extra').show(1000, 'linear');
+       // $(this).parents('.product').find('.product__info__extra').show('fast', ‘swing’);
+       // $(this).parents('.product').find('.product__info__extra').toggle(1000);
+       // $(this).parents('.product').find('.product__info__extra').fadeIn('fast', 'swing');
+       // $(this).parents('.product').find('.product__info__extra').fadeTo('slow', 'swing');
+       $(this).parents('.product').find('.product__info__extra').slideDown('slow', 'swing');
+       $(this).parents('.product').find('.product__info__extra').slideUp('slow', 'linear');
+      
+   })
+});

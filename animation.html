@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>My Project</title>
+  <link href="./fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="css/showcase.css" rel="stylesheet">
+  <style>
+    .animation-div {
+        /* also try a different transform-origin for kicks*/
+        --transform-origin-x: 50%;
+        --transform-origin-y: 50%;
+        transform-origin: var(--transform-origin-x) var(--transform-origin-y);
+
+        --graph-color: hsla(183, 80%, 0%, .05);
+
+        background-color: hsla(var(--hue, 183), 80%, 50%, var(--alpha, 1));
+
+        width: var(--side);
+        height: var(--side);
+        position: absolute;
+        top: 0;
+        left: calc(var(--side) * -1);
+        opacity: 0;
+        mix-blend-mode: normal;
+
+        background-image:
+            linear-gradient(to right,
+                var(--graph-color) 0px,
+                var(--graph-color) 1px),
+            linear-gradient(to bottom,
+                var(--graph-color) 0px,
+                var(--graph-color) 1px);
+        background-position: var(--transform-origin-x) var(--transform-origin-y);
+        background-size: 2px 100%, 100% 2px;
+        background-repeat: no-repeat;
+
+        transition: opacity 200ms ease-in;
+    }
+
+    .fade {
+        opacity:0;
+    }
+
+    div:last-of-type {
+        mix-blend-mode: normal;
+    }
+
+    .main-animation {
+        position: absolute;
+        left:var(--side);
+        --side: 33vmin;
+        z-index: 100;
+        width: var(--side);
+        height: var(--side);
+    }
+   
+</style>
+</head>
+
+<body>
+  <nav>
+    <ul class="navbar">
+      <li class="navbar__logo"><a href="index.html">Shopaholic</a></li>
+      <li class="navbar__item"><a href="index.html">Home</a></li>
+      <li class="navbar__item"><a href="#">About</a></li>
+      <li class="navbar__item"><a href="#">Contact</a></li>
+      
+      <li class="navbar__item user"><a href="#"><i class="fas fa-user-plus"></i></a></li>
+      <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+      <li class="shopping__cart">
+        <a href="#"><i class="fas fa-cart-plus"></i> <span class="shopping__cart-items">0</span></a>
+      </li>
+    </ul>
+
+  </nav>
+  
+  <!-- cart -->
+  <aside class="sidebar cart-overlay" id="sidebar">
+    <div class="cart">
+      <a href="#" class="close__btn"><i class="far fa-window-close"></i></a>
+      <h2>Your Cart</h2>
+      <div class="cart-content">
+       
+      </div>
+      <div class="cart-footer">
+        <h3>your total : $<span class="cart-total">0</span></h3>
+        <a class="clear-cart btn_card">clear cart</a>
+      </div>
+    </div>
+  </aside>
+  <!-- end of cart -->
+  
+  <main>
+    
+    <div class="filter-section__wrapper">
+
+    </div>
+    
+    <section class="showcase-section">
+      <span class="main-animation"></span>
+      <div class="product" productId="0">
+        <div class="product__image"><img src="./images/01.jpg" alt="PRODUCT INFO" />
+          <div class="product__detail">
+            <a href="#" class="product__detail-btn">Detail view</a>
+          </div>
+        </div>
+        <div class="product__info">
+          <h3 class="product__title">Really Cool Cat</h3>
+          <p class="product__info__extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+        </div>
+        <div class="product__buy">
+          <a href="#" class="add_to_card"><i class="fas fa-shopping-cart"></i>Add to card</a>
+          <div class="product__prices">
+            <i class="fas fa-dollar-sign"></i>
+            <span class="product__price">189.99</span>
+          </div>
+        </div>
+      </div>
+      <div class="product" productId="1">
+        <div class="product__image"><img src="./images/02.jpg" alt="PRODUCT INFO" />
+          <div class="product__detail">
+            <a href="#" class="product__detail-btn">Detail view</a>
+          </div>
+        </div>
+        <div class="product__info">
+          <h3 class="product__title">Cool Dog</h3>
+          <p class="product__info__extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+        </div>
+        <div class="product__buy">
+          <a href="#" class="add_to_card"><i class="fas fa-shopping-cart"></i>Add to card</a>
+          <div class="product__prices">
+            <i class="fas fa-dollar-sign"></i>
+            <span class="product__price">229.99</span>
+          </div>
+        </div>
+      </div>
+      <div class="product" productId="2">
+        <div class="product__image"><img src="./images/03.jpg" alt="PRODUCT INFO" />
+          <div class="product__detail">
+            <a href="#" class="product__detail-btn">Detail view</a>
+          </div>
+        </div>
+        <div class="product__info">
+          <h3 class="product__title">Angry Dog</h3>
+          <p class="product__info__extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+        </div>
+        <div class="product__buy">
+          <a href="#" class="add_to_card"><i class="fas fa-shopping-cart"></i>Add to card</a>
+          <div class="product__prices">
+            <i class="fas fa-dollar-sign"></i>
+            <span class="product__price">255.99</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product" productId="1">
+        <div class="product__image"><img src="./images/02.jpg" alt="PRODUCT INFO" />
+          <div class="product__detail">
+            <a href="#" class="product__detail-btn">Detail view</a>
+          </div>
+        </div>
+        <div class="product__info">
+          <h3 class="product__title">Cool Dog</h3>
+          <p class="product__info__extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+        </div>
+        <div class="product__buy">
+          <a href="#" class="add_to_card"><i class="fas fa-shopping-cart"></i>Add to card</a>
+          <div class="product__prices">
+            <i class="fas fa-dollar-sign"></i>
+            <span class="product__price">229.99</span>
+          </div>
+        </div>
+      </div>
+      <div class="product" productId="2">
+        <div class="product__image"><img src="./images/03.jpg" alt="PRODUCT INFO" />
+          <div class="product__detail">
+            <a href="#" class="product__detail-btn">Detail view</a>
+          </div>
+        </div>
+        <div class="product__info">
+          <h3 class="product__title">Angry Dog</h3>
+          <p class="product__info__extra">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+        </div>
+        <div class="product__buy">
+          <a href="#" class="add_to_card"><i class="fas fa-shopping-cart"></i>Add to card</a>
+          <div class="product__prices">
+            <i class="fas fa-dollar-sign"></i>
+            <span class="product__price">255.99</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <template id="cartItem">
+    <!-- cart item -->
+    <div class="cart-item">
+      <div><img src="" alt="product" class="item-image"></div>
+      <div>
+        <h4 class="item-title"></h4>
+        <h5>$<span class="item-price"></span></h5>
+        <span class="remove-item">remove</span>
+      </div>
+      <div>
+        <i class="fas fa-chevron-up"></i>
+        <p class="item-amount">
+          1
+        </p>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+    <!-- cart item -->
+  </template>
+  
+  <template id="catouselNav">
+    <div class="carousel-wrapper">
+        <div class="carousel-detail">
+            <div class="carousel__nav">
+                <span id="moveLeft" class="carousel__arrow">
+                    <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                    </svg>
+                </span>
+                <span id="moveRight" class="carousel__arrow">
+                    <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                    </svg>
+                </span>
+            </div>
+            
+        </div>
+    </div>
+  </template>
+  <script src="./js/db.js"></script>
+  <script src="./js/animation.js"></script>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  <!-- <script src="./js/app.js"></script> -->
+  
+</body>
+
+</html>

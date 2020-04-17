@@ -1,0 +1,161 @@
+
+:root {
+    --contrast-color: #0095DD;
+    --contrast-color-over: #00539F;
+    --contrast-color-translucid: rgba(0, 149, 221, 0.7);
+    --contrast-color-over-translucid: rgba(0, 83, 159, 0.7);
+
+    --bg-color: #f6f4ec;
+    --bg-color-shadow: #d7d3c8;
+
+    --text-color: #000;
+    --text-color-contrast: #fff;
+
+    --highlight: rgba(255, 255, 255, 0.9);
+    --highlight-subtle: rgba(255, 255, 255, 0.5);
+    --shadow: rgba(0, 0, 0, 0.2);
+    --dark-shadow: rgba(0, 0, 0, 0.6);
+}
+
+
+.constrained a {
+    color: var(--contrast-color);
+    text-decoration: none;
+}
+
+.constrained a:hover {
+    color: var(--contrast-color-over);
+    text-decoration: underline;
+}
+
+.constrained a.button {
+    display: inline-block;
+    color: var(--text-color-contrast);
+    text-decoration: none;
+    line-height: 1.25rem;
+    box-sizing: border-box;
+}
+
+button, a.button {
+    border: 0;
+    background: var(--contrast-color);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    transition: background 0.2s ease;
+}
+
+button:active, button:hover, a.button:active, a.button:hover {
+    background: var(--contrast-color-over);
+}
+
+button[disabled] {
+    background: #ccc;
+    color: #666;
+}
+
+button[disabled]:hover {
+    cursor: not-allowed;
+}
+
+
+.constrained p, li {
+  margin: 1em 0;
+}
+
+.constrained li, dt, dd {
+    margin: 0.8em 0;
+}
+
+.constrained dd {
+    margin-left: 2em;
+}
+
+.constrained input[type=range], input[type=color] {
+    vertical-align: bottom;
+}
+
+.constrained h1, h2, h3 {
+    font-weight: normal;
+    text-shadow: 0 1px 0 var(--highlight);
+    color: #484848;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.25em;
+}
+
+/* ---------------------------------------------------------------------------*/
+/* layout */
+/* ---------------------------------------------------------------------------*/
+
+body.index {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.page-wrapper {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+
+/* helpers */
+.panel {
+    border-bottom: 2px solid var(--shadow);
+    border-right: 2px solid var(--shadow);
+    border-top: 2px solid var(--highlight);
+    margin: 2em 0;
+    padding: 1.5em;
+    background: var(--bg-color);
+}
+
+.panel > *:first-child, .panel > header > * {
+    margin-top: 0;
+}
+
+.constrained {
+    max-width: 900px;
+    margin: 0 2em;
+}
+
+    .css-btn-events {
+        transform: scale(1);
+        transition: all 0.5s;
+    }
+    .css-btn-events:hover {
+        transform: scale(1.20);
+    }
+
+    .rainbow, .anim-rainbow {
+        background: #ff004d;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .rainbow {
+        animation: rainbow 2s alternate infinite;
+    }
+
+    @keyframes rainbow {
+        0% { background: #ff004d; }
+        20% { background: #ff77ab; }
+        50% { background: #00e756; }
+        80% { background: #29adff; }
+        100% { background: #ff77ab;}
+    }
+
+    .animations {
+        border-top: 2px solid var(--shadow);
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+
